@@ -7,3 +7,4 @@ def game():
     volby = ['kámen', 'nůžky', 'papír']
     
     
+# konec
