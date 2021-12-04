@@ -1,12 +1,38 @@
 #! python3
-# Hra Kámen nůžky papír
-import random
+# kamen nuzky papir
+import random # nacteni knohovny pro generovani nahody
+# definice
+volby = ['kámen', 'núžky', 'papír']
 
-def game():
-    pocet_hracu = int(input("Kolik bude hráčů? (obvykle 2) "))
-    volby = ['kámen', 'nůžky', 'papír']
-    
-    vstup_hrac = int(input("Vyber volbu: (1-kámen,2-nůžky,3-papír)"))
-    vstup_comp = random.randint(1,3)
-    
-# konec
+# vstupy hracu
+vstup_hrac = int(input("Zvol si: (1-kámen,2-nůžky,3-papír) "))
+vstup_pocitac = random.randint(1, 3)
+# vysledek
+
+
+def hra(vstup_hrac, vstup_pocitac):
+    ''' Vlastni hra'''
+    # vyhodnoceni
+    if vstup_hrac == vstup_pocitac:
+        return 'repeat'
+    elif vstup_hrac == 1:
+        if vstup_pocitac == 2:
+            return 'win'
+        elif vstup_pocitac == 3:
+            return 'loose'
+    elif vstup_hrac == 2:
+        if vstup_pocitac == 3:
+            return 'win'
+        elif vstup_pocitac == 1:
+            return 'loose'
+    elif vstup_hrac == 3:
+        if vstup_pocitac == 1:
+            return 'win'
+        elif vstup_pocitac == 2:
+            return 'loose'
+    else:
+        return 'wrong'
+
+print(hra(vstup_hrac, vstup_pocitac))
+
+
