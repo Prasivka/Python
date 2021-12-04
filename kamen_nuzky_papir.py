@@ -36,3 +36,6 @@ def hra(vstup_hrac, vstup_pocitac):
 print(hra(vstup_hrac, vstup_pocitac))
 
 
+def main():
+    while True:
+        
