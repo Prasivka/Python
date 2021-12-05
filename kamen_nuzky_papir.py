@@ -1,16 +1,8 @@
 #! python3
 # kamen nuzky papir
 import random # nacteni knohovny pro generovani nahody
-# definice
-volby = ['kámen', 'núžky', 'papír']
 
-# vstupy hracu
-vstup_hrac = int(input("Zvol si: (1-kámen,2-nůžky,3-papír) "))
-vstup_pocitac = random.randint(1, 3)
-# vysledek
-
-
-def hra(vstup_hrac, vstup_pocitac):
+def rozhodnuti(vstup_hrac, vstup_pocitac):
     ''' Vlastni hra'''
     # vyhodnoceni
     if vstup_hrac == vstup_pocitac:
@@ -33,9 +25,33 @@ def hra(vstup_hrac, vstup_pocitac):
     else:
         return 'wrong'
 
-print(hra(vstup_hrac, vstup_pocitac))
-
+def vyhodnoceni(vysledek):
+    ''' Převedeni vysledku do vystupu '''
+    if vysledek == 'loose':
+        return 'Bohužel, prohrál jsi.'
+    elif vysledek == 'win':
+        return 'Gratuluji, vyhrál jsi!'
+    elif vysledek == 'repeat':
+        return 'Remíza, zkus to ještě jednou.'
+    else:
+        return 'Takhle by to nešlo'
 
 def main():
-    while True:
-        
+    ''' Hlavni program '''
+#    volby = ['kámen', 'núžky', 'papír']
+    opakuj = True
+    while opakuj:
+        # vstupy hracu
+        vstup_hrac = int(input("Zvol si: (1-kámen,2-nůžky,3-papír) "))
+        vstup_pocitac = random.randint(1, 3)
+        # vysledek
+        print(vyhodnoceni(rozhodnuti(vstup_hrac, vstup_pocitac)))
+        pokracovat = input("Chceš pokračovat? y/n ")
+        if pokracovat.lower() == 'y':
+            opakuj = True
+        elif pokracovat.lower() == 'n':
+            opakuj = False
+        else:
+            break
+
+main()
