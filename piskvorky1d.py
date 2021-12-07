@@ -27,6 +27,7 @@ def vypis_plochy(plocha):
             print("_  ", end="")
         print(end="\n")
 
+# ----------------------------------------------------
 
 herni_plan = hraci_plocha(rozmer_x, rozmer_y)
 
