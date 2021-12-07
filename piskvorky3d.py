@@ -29,9 +29,9 @@ def vypis_plochy(plocha):
         print(end="\n")
     print()
 
-def herni_tah(tah):
+def herni_tah(tah, rozmer):
     '''  '''
-    if (int(tah) in range(0,9)):
+    if (int(tah) in range(0,rozmer)):
         tah = int(tah)
     else:
         print('Neplatné číslo')
@@ -46,18 +46,18 @@ def switcher(volba='x'):
         return 'x'
 
 # ------------------------------------------------------------
-
+# definice herni plochy
 herni_plan = hraci_plocha(rozmer_x, rozmer_y)
-
+# vypsani herni plochy
 vypis_plochy(herni_plan)
 
 hrac = 'x'
 pokracuj = True
 while pokracuj:
     '''  Stridani tahu '''
-
-    tah_x = herni_tah(input("Zadej polohu tahu 'x'[0..8] : "))
-    tah_y = herni_tah(input("Zadej polohu tahu 'y'[0..8] : "))
+    print("Na tahu je hráč: {}".format(hrac))
+    tah_x = herni_tah(input("Zadej polohu tahu 'X'[0..{0}] : ".format(rozmer_x-1)), rozmer_x)
+    tah_y = herni_tah(input("Zadej polohu tahu 'Y'[0..{0}] : ".format(rozmer_y-1)), rozmer_y)
     if herni_plan[tah_x][tah_y] == ' ':
         herni_plan[tah_x][tah_y] = hrac
     else:
